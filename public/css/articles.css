@@ -1,5 +1,9 @@
-#content {
-    margin: 2%;
+#no-articles {
+    text-align: center;
+    color: red;
+    margin: auto;
+
+    padding: 5%;
 }
 
 .article {
@@ -30,4 +34,10 @@
 
 .article .signature {
     font-style: italic;
+}
+
+.title-center {
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
 }

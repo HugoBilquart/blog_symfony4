@@ -45,6 +45,23 @@ class ArticleController extends AbstractController
     }
 
     /**
+	 * @Route("/article/{id}", name="view")
+	 */
+    public function view(Article $article){
+        if(empty($article)) {
+            return $this->render('article/view.html.twig', [
+                'article'    =>  ''
+            ]);
+        }
+        else {
+            return $this->render('article/view.html.twig', [
+                'article'    =>  $article
+            ]);
+        }        
+    }
+
+    
+    /**
 	 * @Route("/edit/{id}", name="edit")
 	 */ 
 	public function edit(Article $article, Request $request){

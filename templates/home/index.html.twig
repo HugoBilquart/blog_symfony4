@@ -9,17 +9,22 @@
     <hr>
     <h2>Liste des articles rédigés sur le blog</h2>
     <div class="row">
+        {% if articles is empty %}
+            <div id="no-articles">
+                <span>Aucun article n'a encore été rédigé</span>
+            </div>
+        {% endif %}
+
         {% for article in articles %}
             <div class="article col-sm-4">
                 <h3>{{ article.title }}</h3>
-                <a href="{{ path('edit', {id: article.id}) }}" title="Editer l'article">
-                    {% if app.user.username == article.author %}
-                        <img src="{{ asset('images/edit.png') }}" class="edit-icon">
-                    {% endif %}
-                </a>
-                <p class="content">{{ article.content }}</p>
-                <a href="">
-                    Lire le contenu... [TODO : Faire le lien vers un "view" si le contenu dépasse X caractères]
+                {% if app.user.username == article.author %}
+                    <a href="{{ path('edit', {id: article.id}) }}" title="Editer l'article">
+                        <img src="{{ asset('images/edit.png') }}" class="edit-icon"> 
+                    </a>
+                {% endif %}
+                <a href="{{ path('view', {id: article.id}) }}">
+                    Lire le contenu...
                 </a>
                 <hr>
                 <p class="signature">{{ article.signature }}</p>

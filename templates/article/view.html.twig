@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lire un article{% endblock %}
+
+{% block body %}
+<div id="content">
+    <h1>Bienvenue sur un blog fait avec Symfony 4 ! ✅</h1>
+    <hr>
+    {% if article is empty %}
+        <div id="no-articles">
+            <span>Aucun article trouvé</span>
+        </div>
+    {% else %}
+        <h2 class="title-center">{{article.title}}</h2>
+        <div class="article col-sm-10">
+            {% if app.user.username == article.author %}
+                <a href="{{ path('edit', {id: article.id}) }}" title="Editer l'article">
+                    <img src="{{ asset('images/edit.png') }}" class="edit-icon"> 
+                </a>
+            {% endif %}
+            <p class="content">{{ article.content }}</p>
+            <hr>
+            <p class="signature">{{ article.signature }}</p>
+            <p class="infos">By<b> {{ article.author}}</b>, {{ article.publicationDate|date('d/m/Y H:i:s')}}</p>
+        </div>
+    {% endif %}
+    <a href="{{ path('home') }}" class="btn btn-info ml-3">
+        Retourner à la liste des articles
+    </a>
+</div>
+{% endblock %}
