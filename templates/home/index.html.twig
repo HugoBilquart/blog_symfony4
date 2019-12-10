@@ -1,15 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Page d'accueil - Liste des articles{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
+<div id="content">
     <h1>Bienvenue sur un blog fait avec Symfony 4 ! ✅</h1>
+    <hr>
+    <h2>Liste des articles rédigés sur le blog</h2>
+    <div class="row">
+        {% if articles is empty %}
+            <div id="no-articles">
+                <span>Aucun article n'a encore été rédigé</span>
+            </div>
+        {% endif %}
 
+        {% for article in articles %}
+            <div class="article col-sm-4">
+                <h3>{{ article.title }}</h3>
+                {% if app.user.username == article.author %}
+                    <a href="{{ path('edit', {id: article.id}) }}" title="Editer l'article">
+                        <img src="{{ asset('images/edit.png') }}" class="edit-icon"> 
+                    </a>
+                {% endif %}
+                <a href="{{ path('view', {id: article.id}) }}">
+                    Lire le contenu...
+                </a>
+                <hr>
+                <p class="signature">{{ article.signature }}</p>
+                <p class="infos">By<b> {{ article.author}}</b>, {{ article.publicationDate|date('d/m/Y H:i:s')}}</p>
+            </div>
+        {% endfor %}
+
+    </div>
 </div>
 {% endblock %}

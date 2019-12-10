@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
 
             {% if is_granted('ROLE_USER') %}
                 <li class="nav-item {% if app.request.get('_route') == 'new' %}active{% endif %}">
-                    <a class="nav-link" href="">Ecrire un nouvel article</a>
+                    <a class="nav-link" href="{{ path('new') }}">Ecrire un nouvel article</a>
                 </li>
             {% endif %}
         </ul>

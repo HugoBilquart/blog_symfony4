@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/articles.css') }}">
             <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         {% endblock %}
     </head>
@@ -13,5 +15,6 @@
             {% block body %}{% endblock %}
             {% block javascripts %}{% endblock %}
         </div>
+        {% include('footer.html.twig') %}
     </body>
 </html>
