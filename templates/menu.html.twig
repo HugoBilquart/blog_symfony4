@@ -11,7 +11,7 @@
 
             {% if is_granted('ROLE_USER') %}
                 <li class="nav-item {% if app.request.get('_route') == 'new' %}active{% endif %}">
-                    <a class="nav-link" href="">Ecrire un nouvel article</a>
+                    <a class="nav-link" href="{{ path('new') }}">Ecrire un nouvel article</a>
                 </li>
             {% endif %}
         </ul>

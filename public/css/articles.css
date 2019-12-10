@@ -1,0 +1,33 @@
+#content {
+    margin: 2%;
+}
+
+.article {
+    margin: 5%;
+    padding: 2%;
+    border: solid 2px;
+    background-color: #ffff72;
+    box-shadow: 10px 5px 5px #848400;
+}
+
+.article h3 {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.article img.edit-icon {
+    width: 50px;
+    margin: 2%;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.article p.content {
+    text-indent: 2%;
+}
+
+.article .signature {
+    font-style: italic;
+}
