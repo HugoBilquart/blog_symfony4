@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if app.request.get('_route') == 'home' %}active{% endif %}">
+                <a class="nav-link" href="{{ path('home') }}">Menu</a>
+            </li>
+
+            {% if is_granted('ROLE_USER') %}
+                <li class="nav-item {% if app.request.get('_route') == 'new' %}active{% endif %}">
+                    <a class="nav-link" href="">Ecrire un nouvel article</a>
+                </li>
+            {% endif %}
+        </ul>
+        <div class="form-inline my-2 my-lg-0  text-center">
+            {% if app.user is null %}
+                <a class="btn btn-info ml-3" href="{{ path('app_login') }}">
+                    <i class="fas fa-sign-in-alt"></i>Se connecter
+                </a>
+                <a class="btn btn-info ml-3" href="{{ path('app_register') }}">
+                    <i class="fas fa-sign-in-alt"></i>S'inscrire
+                </a>
+            {% else %}
+                <a class="btn btn-danger ml-3" href="{{ path('app_logout') }}">
+                    <i class="fas fa-sign-in-alt"></i>Se déconnecter
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+</nav>
