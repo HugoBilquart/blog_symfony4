@@ -27,7 +27,16 @@ class UserFixtures extends Fixture
         //Mise en place de Faker
         $faker = Faker\Factory::create('fr_FR');
 
-        //Création de 10 utilisateurs (nom d'utilisateur, mot de passe, rôle)
+        //Création d'un utilisateur défini et de 10 utilisateurs aléatoires (nom d'utilisateur, mot de passe, rôle)
+        $user = new User();
+        $user->setUsername('User');
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            'symfony87'
+        ));
+        $user->setRoles(['ROLE_USER']);
+        $manager->persist($user);
+
         for ($i = 0; $i < 10; $i++) {
             $user = new User();
             $user->setUsername($faker->name);
