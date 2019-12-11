@@ -11,10 +11,10 @@ A simple using example of PHP Symfony 4
 
 ## Setup the project :
 
-    composer update à la base du projet
-    créer le .env.local avec les paramètre de la base
-    php bin/console d:d:c
-    php bin/console d:s:u --force
+    composer update (project directory)
+    Create file .env.local with database parameters (username, password, database name)
+    php bin/console d:d:c (Create database)
+    php bin/console d:s:u --force (Update database)
     
     php bin/console d:f:l (Fixture that will create a defined users, 10 others users and 10 articles
 
