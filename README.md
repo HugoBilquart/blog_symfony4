@@ -1,6 +1,6 @@
 # Blog Symfony 4
 
-Un exemple simple d'utilisation du framework PHP Symfony 4
+A simple using example of PHP Symfony 4
 
 # This blog allows you to :
 - Register
